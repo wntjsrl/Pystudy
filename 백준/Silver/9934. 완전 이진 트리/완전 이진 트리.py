@@ -1,4 +1,4 @@
-# Baekjoon 9934 (2025.03.09)
+# Baekjoon 9934 완전 이진 트리 (2025.03.09)
 
 # import sys
 
