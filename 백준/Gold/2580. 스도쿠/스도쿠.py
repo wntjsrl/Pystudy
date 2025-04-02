@@ -12,13 +12,16 @@ def is_valid(x, y, num):
     return True
 
 def recur(cnt):
+    global is_completed
+    # 정답을 이미 찾았으면
+    if is_completed:
+        return
     # 빈칸의 수만큼 재귀가 진행되면 종료
     if cnt == len(blanks):
         for i in range(9):
-            for j in range(9):
-                print(arr[i][j], end=" ")
-            print()
-        exit(0)
+            print(*arr[i])
+        is_completed = True
+        return
     i, j = blanks[cnt]
     for k in range(1, 10):
         if is_valid(i, j, k):
@@ -29,4 +32,6 @@ def recur(cnt):
 arr = [list(map(int, input().split())) for _ in range(9)]
 # 빈칸의 좌표가 들어있는 리스트
 blanks = [(i, j) for i in range(9) for j in range(9) if arr[i][j] == 0]
+# 재귀 종료 플래그
+is_completed = False
 recur(0)
